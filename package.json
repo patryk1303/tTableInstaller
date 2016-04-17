@@ -1,0 +1,28 @@
+{
+  "name": "table-installer",
+  "version": "0.0.1",
+  "description": "tTable Installer app",
+  "main": "app/main.js",
+  "scripts": {
+    "start": "electron app/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tTables/tTableInstaller.git"
+  },
+  "keywords": [
+    "Electron",
+    "ttable",
+    "bus",
+    "timetable"
+  ],
+  "author": "Patryk Wychowaniec",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/electron/electron-quick-start/issues"
+  },
+  "homepage": "https://github.com/electron/electron-quick-start#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^0.37.0"
+  }
+}
