@@ -1,0 +1,51 @@
+<form class="padded-more">
+  <div class="form-group">
+    <label for="host">Database host:</label>
+    <input 
+      type="text"
+      class="form-control"
+      id="host"
+      placeholder="Database host"
+      ng-model="host"
+      required>
+  </div>
+  <div class="form-group">
+    <label for="username">Database username:</label>
+    <input 
+      type="text"
+      class="form-control"
+      id="username"
+      placeholder="Database username"
+      ng-model="username"
+      required>
+  </div>
+  <div class="form-group">
+    <label for="password">Database password:</label>
+    <input 
+      type="password"
+      class="form-control"
+      id="password"
+      placeholder="Database password"
+      ng-model="password"
+      required>
+  </div>
+  <div class="form-group">
+    <label for="host">Database name:</label>
+    <input 
+      type="text"
+      class="form-control"
+      id="host"
+      placeholder="Database name"
+      ng-model="base"
+      required>
+  </div>
+  <div class="form-actions">
+    <button type="button" class="btn btn-form"
+      ng-click="check()"
+      ng-disabled="checking"
+      ng-class="{'btn-primary': !checking, 'btn-default': checking}"
+      >
+      Check connection
+    </button>
+  </div>
+</form>

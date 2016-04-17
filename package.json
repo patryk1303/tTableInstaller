@@ -4,7 +4,8 @@
   "description": "tTable Installer app",
   "main": "app/main.js",
   "scripts": {
-    "start": "electron app/main.js"
+    "start": "electron app/main.js",
+    "build": "electron-packager app ttableinstaller --platform=win32 --arch=all"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/tTables/tTableInstaller",
   "devDependencies": {
+    "electron-packager": "^6.0.2",
     "electron-prebuilt": "^0.37.0"
   },
   "dependencies": {

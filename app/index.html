@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="ttableinstaller">
   <head>
     <meta charset="UTF-8">
     <title>tTableInstaller</title>
@@ -13,7 +13,7 @@
       </header>
       
       <main class="window-content">
-        
+        <div ng-view></div>
       </main>
       
       <footer class="toolbar toolbar-footer">
@@ -24,8 +24,8 @@
         </div>
       </footer>
     </div>
-    <script>
-      require('./app.js')
-    </script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
