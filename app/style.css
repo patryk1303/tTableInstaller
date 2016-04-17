@@ -1,3 +1,22 @@
 .form-control.ng-invalid {
   border-color: tomato;
 }
+
+/* https://github.com/gsouf/photon/commit/0313cccd6d505117730199210fd59bd76817b807 */
+.toolbar-header {
+  display: inline-flex;
+}
+.toolbar-header .title {
+  flex-grow: 1;
+  text-align: center;
+}
+.toolbar-header .action-group {
+  list-style: none;
+  margin: 0 0 0 auto;
+  padding: 1px 5px 0 2px;
+}
+.toolbar-header .action-group .action-button {
+  display: inline-block;
+  padding: 0 5px;
+  -webkit-app-region: no-drag;
+}

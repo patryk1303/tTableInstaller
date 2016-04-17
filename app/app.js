@@ -6,12 +6,9 @@ let fs = require('fs')
 let knex = require('knex')
 let mysql = require('mysql')
 
-document.getElementById('close-app').addEventListener('click', () => {
-  if(confirm('Do you really want to close application?'))
-    remote.getCurrentWindow().close()
-})
-
 let app = angular.module('ttableinstaller', ['ngRoute'])
+
+photon.start(document)
 
 app.config(($routeProvider) => {
   $routeProvider

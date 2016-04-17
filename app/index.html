@@ -10,22 +10,28 @@
     <div class="window">
       <header class="draggable toolbar toolbar-header">
         <h1 class="title">tTableInstaller</h1>
+        
+        <ul class="action-group">
+          <li class="action-button" action-maximize-window>
+            <span class="icon icon-plus"></span>
+          </li>
+          <li class="action-button" action-minimize-window>
+            <span class="icon icon-minus"></span>
+          </li>
+          <li class="action-button" action-close-window>
+            <span class="icon icon-cancel"></span>
+          </li>
+        </ul>
       </header>
       
       <main class="window-content">
         <div ng-view></div>
       </main>
       
-      <footer class="toolbar toolbar-footer">
-        <div class="toolbar-actions">
-          <div class="btn btn-negative pull-right" id="close-app">
-            Close
-          </div>
-        </div>
-      </footer>
     </div>
     <script src="js/angular.js"></script>
     <script src="js/angular-route.js"></script>
+    <script src="js/photon.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
