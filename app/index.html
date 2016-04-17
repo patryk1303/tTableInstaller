@@ -3,8 +3,29 @@
   <head>
     <meta charset="UTF-8">
     <title>tTableInstaller</title>
+    <link rel="stylesheet" href="css/photon.css">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>tTableInstaller</h1>
+    <div class="window">
+      <header class="draggable toolbar toolbar-header">
+        <h1 class="title">tTableInstaller</h1>
+      </header>
+      
+      <main class="window-content">
+        
+      </main>
+      
+      <footer class="toolbar toolbar-footer">
+        <div class="toolbar-actions">
+          <div class="btn btn-negative pull-right" id="close-app">
+            Close
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      require('./app.js')
+    </script>
   </body>
 </html>
