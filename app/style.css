@@ -10,6 +10,9 @@
 .alert.alert-error {
   background-color: tomato;
 }
+.alert.alert-success {
+  background-color: greenyellow;
+}
 
 /* https://github.com/gsouf/photon/commit/0313cccd6d505117730199210fd59bd76817b807 */
 .toolbar-header {

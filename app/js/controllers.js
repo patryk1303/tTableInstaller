@@ -15,7 +15,6 @@ app.controller('MainController', ($scope, Cnx, Lines) => {
     $scope.checking = true
     Cnx.connect($scope.host, $scope.username, $scope.password, $scope.base)
       .then((_cnx) => {
-        console.log(_cnx)
         cnx = _cnx
         $scope.checking = false
         $scope.success = true

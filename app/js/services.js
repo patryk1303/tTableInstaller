@@ -31,14 +31,27 @@ app.factory('Lines', ($q, Cnx) => {
     let cnx = Cnx.getConnection()
     let deffered = $q.defer()
     let query = 'SELECT * FROM `lines`'
-    cnx.query(query, (err, rows) => {
-      if(err) deffered.reject(err)
+    cnx.query(query).then((rows) => {
       deffered.resolve(rows)
+    }).catch((err) => {
+      deffered.reject(err)
+    })
+    return deffered.promise
+  }
+  const getLineDate = (line) => {
+    let cnx = Cnx.getConnection()
+    let deffered = $q.defer()
+    let query = 'SELECT date FROM `lines` WHERE line = ' + line
+    cnx.query(query).then((rows) => {
+      deffered.resolve(rows[0].date)
+    }).catch((err) => {
+      deffered.reject(err)
     })
     return deffered.promise
   }
 
   return {
-    getLines: getLines
+    getLines: getLines,
+    getLineDate: getLineDate
   }
 })
