@@ -28,7 +28,6 @@
     "electron-prebuilt": "^0.37.0"
   },
   "dependencies": {
-    "knex": "^0.10.0",
     "mysql": "^2.10.2"
   }
 }
