@@ -1,3 +1,17 @@
+<div class="padded-more">
+  <h2>tTableInstaller</h2>
+  <h3>Step 1 - database connection</h3>
+  <small>
+    Write down your MySQL / MariaDB connection information, click "Ckech connection" and "Next step" if connection successed
+  </small>
+</div>
+
+<div ng-if="error" class="padded-more alert alert-error">
+  <span class="icon icon-alert"></span>
+  <strong>An error has ocured:</strong><br>
+  Error code: <code>{{errorMessage}}</code>
+</div>
+
 <form class="padded-more">
   <div class="form-group">
     <label for="host">Database host:</label>
@@ -46,5 +60,9 @@
       >
       Check connection
     </button>
+    <button class="btn btn-form pull-right"
+      ng-disabled="!success"
+      ng-class="{'btn-primary': success, 'btn-default': !success}"
+    >Next step</button>
   </div>
 </form>
