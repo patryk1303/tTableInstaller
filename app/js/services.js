@@ -2,14 +2,19 @@ app.factory('Cnx', ($q) => {
   let cnx = null
   const connect = (host, username, password, base, debug = false) => {
     let deffered = $q.defer()
-    cnx = mysql.createConnection({
+    mysql.createConnection({
       host:     host,
       user:     username,
       password: password,
       database: base
+    }).then((_cnx) => {
+      cnx = _cnx
+      deffered.resolve(cnx)
+    }).catch((err) => {
+      console.error(err)
+      deffered.reject(err)
     })
-    cnx.connect()
-    return cnx
+    return deffered.promise
   }
   const getConnection = () => cnx
   const endConnection = () => cnx.end()

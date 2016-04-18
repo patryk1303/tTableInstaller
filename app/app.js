@@ -3,7 +3,7 @@
 
 let remote = require('remote')
 let fs = require('fs')
-let mysql = require('mysql')
+let mysql = require('promise-mysql')
 
 let app = angular.module('ttableinstaller', ['ngRoute'])
 
