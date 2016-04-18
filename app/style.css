@@ -2,6 +2,11 @@
   border-color: tomato;
 }
 
+.content-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* alert */
 .alert {
   padding: 5px;

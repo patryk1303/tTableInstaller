@@ -1,4 +1,4 @@
-app.controller('MainController', ($scope, Cnx, Lines) => {
+app.controller('MainController', ($scope, $location, Cnx) => {
   let cnx
   $scope.checking = false
   $scope.success = false
@@ -28,5 +28,30 @@ app.controller('MainController', ($scope, Cnx, Lines) => {
         $scope.error = true
         $scope.errorMessage = err.code
       })
+  }
+  
+  $scope.nextStep = () => {
+    if($scope.success) {
+      $location.path('/directory')
+    }
+  }
+})
+
+app.controller('DirectoryController', ($scope, $location, Cnx, Lines) => {
+  let cnx = Cnx.getConnection()
+  $scope.checking = false
+  $scope.success = false
+  $scope.error = false
+  $scope.errorMessage = null
+
+  $scope.check = () => {
+    $scope.checking = true
+    console.log($scope.directory)
+  }
+  
+  $scope.nextStep = () => {
+    if($scope.success) {
+      $location.path('/directory')
+    }
   }
 })

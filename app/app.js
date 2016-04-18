@@ -15,6 +15,10 @@ app.config(($routeProvider) => {
       templateUrl: 'templates/main.html',
       controller: 'MainController'
     })
+    .when('/directory', {
+      templateUrl: 'templates/directory.html',
+      controller: 'DirectoryController'
+    })
 
     .otherwise({
       redirectTo: '/'

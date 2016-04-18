@@ -1,0 +1,46 @@
+<div class="padded-more">
+  <h2>tTableInstaller</h2>
+  <h3>Step 2 - directory</h3>
+  <small>
+    Chose directory where timetable files are placed.
+  </small>
+</div>
+
+<div ng-if="error" class="padded-more alert alert-error">
+  <span class="icon icon-alert"></span>
+  <strong>An error has ocured:</strong><br>
+  Error code: <code>{{errorMessage}}</code>
+</div>
+
+<div ng-if="success" class="padded-more alert alert-success">
+  <span class="icon icon-check"></span>
+  <strong>Connection successful</strong>
+</div>
+
+<form class="padded-more">
+  <div class="form-actions">
+    <div class="form-group">
+      <label for="directory">Directory</label>
+      <input
+        type="file"
+        ng-model="directory"
+        id="directory"
+        class="form-control"
+        webkitdirectory
+        required>
+    </div>
+    <button type="button" class="btn btn-form"
+      ng-click="check()"
+      ng-disabled="checking"
+      ng-class="{'btn-primary': !checking, 'btn-default': checking}"
+      >
+      Check directory structure
+    </button>
+    <button class="btn btn-form pull-right"
+      ng-disabled="!success"
+      ng-class="{'btn-primary': success, 'btn-default': !success}"
+      ng-click="nextStep()"
+    >Next step</button>
+  </div>
+  </div>
+</form>
