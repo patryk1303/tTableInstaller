@@ -29,7 +29,7 @@ app.controller('MainController', ($scope, $location, Cnx) => {
         $scope.errorMessage = err.code
       })
   }
-  
+
   $scope.nextStep = () => {
     if($scope.success) {
       $location.path('/directory')
@@ -43,12 +43,39 @@ app.controller('DirectoryController', ($scope, $location, Cnx, Lines) => {
   $scope.success = false
   $scope.error = false
   $scope.errorMessage = null
+  $scope.path = null
+
+  let readDir = (err, files) => {
+    if(err) {
+      $scope.error = true
+    } else {
+      $scope.checking = false
+      for(let file of files) {
+        file = fs.openSync(`${$scope.path}/${file}`, 666)
+        fs.fstat(file, fileStats)
+      }
+    }
+  }
+
+  let fileStats = (err, stats) => {
+    if(err) {
+      $scope.error = true
+    } else {
+      console.log(stats.isDirectory())
+    }
+  }
+
+  $scope.showOpenDirectory = () => {
+    $scope.path = dialog.showOpenDialog({properties: ['openDirectory']})[0]
+  }
 
   $scope.check = () => {
-    $scope.checking = true
-    console.log($scope.directory)
+    // $scope.checking = true
+    // path = document.getElementById('directory').files[0].path
+    if($scope.path)
+      fs.readdir($scope.path, readDir)
   }
-  
+
   $scope.nextStep = () => {
     if($scope.success) {
       $location.path('/directory')

@@ -20,14 +20,20 @@
 <form class="padded-more">
   <div class="form-actions">
     <div class="form-group">
-      <label for="directory">Directory</label>
+      <!--<label for="directory">Directory</label>
       <input
         type="file"
         ng-model="directory"
         id="directory"
         class="form-control"
         webkitdirectory
-        required>
+        required>-->
+      <button
+        class="btn btn-form btn-primary"
+        ng-click="showOpenDirectory()"
+      >Open directory</button>
+      <br>
+      <strong ng-bind="path"></strong>
     </div>
     <button type="button" class="btn btn-form"
       ng-click="check()"

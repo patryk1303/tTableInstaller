@@ -4,6 +4,7 @@
 let remote = require('remote')
 let fs = require('fs')
 let mysql = require('promise-mysql')
+let dialog = require('electron').remote.dialog
 
 let app = angular.module('ttableinstaller', ['ngRoute'])
 

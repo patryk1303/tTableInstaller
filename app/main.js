@@ -8,14 +8,14 @@ let mainWindow
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
-    width: 800, 
+    width: 800,
     height: 600,
     resizable: true,
     frame: false
   })
   mainWindow.loadURL('file://' + __dirname + '/index.html')
   mainWindow.webContents.openDevTools()
-  
+
   mainWindow.on('closed', () => {
     mainWindow = null
   })
