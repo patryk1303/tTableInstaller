@@ -39,11 +39,18 @@ app.controller('MainController', ($scope, $location, Cnx) => {
 
 app.controller('DirectoryController', ($scope, $location, Cnx, Lines) => {
   let cnx = Cnx.getConnection()
+  let fileTmp
   $scope.checking = false
   $scope.success = false
   $scope.error = false
   $scope.errorMessage = null
   $scope.path = null
+  $scope.files = []
+
+  $scope.requirements = {
+    dayTypes: false,
+    lines: false
+  }
 
   let readDir = (err, files) => {
     if(err) {
@@ -51,8 +58,19 @@ app.controller('DirectoryController', ($scope, $location, Cnx, Lines) => {
     } else {
       $scope.checking = false
       for(let file of files) {
-        file = fs.openSync(`${$scope.path}/${file}`, 666)
-        fs.fstat(file, fileStats)
+
+        if(typeof file === 'string' && file === 'typy_dni') {
+          $scope.requirements.dayTypes = true
+        }
+
+        fileTmp = {
+          path: `${$scope.path}/${file}`,
+          isDirectory: false
+        }
+        let fd = fs.openSync(fileTmp.path, 'r', 666)
+        fileTmp.isDirectory = fs.fstatSync(fd).isDirectory()
+
+        $scope.files.push(fileTmp)
       }
     }
   }
@@ -61,7 +79,7 @@ app.controller('DirectoryController', ($scope, $location, Cnx, Lines) => {
     if(err) {
       $scope.error = true
     } else {
-      console.log(stats.isDirectory())
+      fileTmp.isDirectory = stats.isDirectory()
     }
   }
 
@@ -70,8 +88,12 @@ app.controller('DirectoryController', ($scope, $location, Cnx, Lines) => {
   }
 
   $scope.check = () => {
-    // $scope.checking = true
-    // path = document.getElementById('directory').files[0].path
+    $scope.checking = true
+    $scope.files = []
+    $scope.requirements = {
+      dayTypes: false,
+      lines: false
+    }
     if($scope.path)
       fs.readdir($scope.path, readDir)
   }
